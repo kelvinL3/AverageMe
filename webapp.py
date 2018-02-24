@@ -9,7 +9,7 @@ def index():
 
 @app.route('/average')
 def average():
-	return render_template('home.html')
+	return render_template('home.html', images=images, average=average)
 
 if __name__ == '__main__':
 	app.run(debug=True)
