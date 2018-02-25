@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+	<div class="row">
+		{% for item in images %}
+			<div class="col">
+				<img src="{{item}}" height="200" width="200" />
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+
+<div class="container">
+	<form action="/average" method="POST">
+		<button name="forwardBtn" type="submit" class="btn btn-info bg-dark">
+			Average
+		</button>
+	</form>
+</div>
+
+
+<div class="container">
+	<img src="{{average}}" height="200" width="200" />
+</div>
+
+{% endblock %}
