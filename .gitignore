@@ -1,2 +1,2 @@
-.javac
-.pyc
+*.javac
+*.pyc
