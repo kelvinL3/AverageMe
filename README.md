@@ -1,6 +1,9 @@
 # AverageMe
+
+Requirements
 ```
-Requires flask.
+pip install flask
+(plus some other stuff)
 ```
 
 
