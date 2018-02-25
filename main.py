@@ -30,9 +30,8 @@ def download_pictures(im, album_id):
 	images = input_album.images
 	return images
 
-def upload_picture(im, folder, album_destination):
-	PATH = "res.jpg"
-	uploaded_image = im.upload_image(PATH, title="Uploaded with PyImgur", album=OUTPUT_ALBUM_ID) # (path=None, url=None, title=None, description=None, album=None)
+def upload_picture(im, path, album_id):
+	uploaded_image = im.upload_image(path, album=OUTPUT_ALBUM_ID) 
 	print(uploaded_image.title)
 	print(uploaded_image.link)
 	print(uploaded_image.size)
@@ -50,23 +49,21 @@ def clear_folder(folder):
 
 # on button click
 if __name__ == "__main__":
-	print("hi")
 	im = connect_to_imgur()
-	images = download_pictures(im, INPUT_ALBUM_ID)
-	print(images)
-
-	# delete all images in the temp folder
-	clear_folder("input_to_output")
-
-	i = 0
-	for img in images:
-		img.download(path = "./input_to_output/", name=str(i))	
-		i+=1
-
-	# process 
-	upload_picture(im, OUTPUT_ALBUM_ID)
 	
-print("afds")
+	while True:
+		ans = raw_input("Do Demo?")
+		if ans is "y":
+			images = download_pictures(im, INPUT_ALBUM_ID)
+			# delete all images in the temp folder
+			clear_folder("input_to_output")
+			i = 0
+			for img in images:
+				img.download(path = "./input_to_output/", name=str(i))	
+				i+=1
+			# process
+			PATH = "whatever you want to upload"
+			upload_picture(im, PATH, OUTPUT_ALBUM_ID) # this method prints out to console
 
 
 # refresh every hour
