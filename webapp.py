@@ -12,6 +12,7 @@ def index():
 
 @app.route('/average', methods=["POST", "GET"])
 def average():
+	get_info.create_result()
 	images = get_info.get_all_images()
 	average = get_info.get_average()
 	return render_template('average.html', images=images, average=average)
