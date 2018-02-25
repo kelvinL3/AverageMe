@@ -1,6 +1,7 @@
 import os
 # import smth
 import averager
+import random
 
 def get_all_images():
 	images = []
@@ -8,7 +9,7 @@ def get_all_images():
 		for file in files:
 			#print os.path.join(root, file)
 			#print file
-			images.append(os.path.join(root, file))
+			images.append(os.path.join(root, file) + "?" + `random.random()`)
 	return images
 
 def get_average():

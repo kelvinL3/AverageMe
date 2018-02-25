@@ -8,6 +8,7 @@ import pyimgur
 import webbrowser
 import config
 
+
 INPUT_ALBUM_ID = "55HpT"
 OUTPUT_ALBUM_ID = "BV2Rd"
 
@@ -24,14 +25,14 @@ def connect_to_imgur():
 
 def create_album(im, name):
 	im.create_album(title=name)
-	
+
 def download_pictures(im, album_id):
 	input_album = im.get_album(album_id)
 	images = input_album.images
 	return images
 
 def upload_picture(im, path, album_id):
-	uploaded_image = im.upload_image(path, album=OUTPUT_ALBUM_ID) 
+	uploaded_image = im.upload_image(path, album=OUTPUT_ALBUM_ID)
 	print(uploaded_image.title)
 	print(uploaded_image.link)
 	print(uploaded_image.size)
@@ -47,23 +48,24 @@ def clear_folder(folder):
 		except Exception as e:
 			print(e)
 
-# on button click
-if __name__ == "__main__":
+def main():
+	# on button click
 	im = connect_to_imgur()
-	
+
 	while True:
 		ans = raw_input("Do Demo?")
 		if ans is "y":
 			images = download_pictures(im, INPUT_ALBUM_ID)
 			# delete all images in the temp folder
-			clear_folder("input_to_output")
+			clear_folder("static/all_images")
 			i = 0
 			for img in images:
-				img.download(path = "./input_to_output/", name=str(i))	
+				img.download(path = "./static/all_images/", name=str(i))
 				i+=1
 			# process
-			PATH = "whatever you want to upload"
-			upload_picture(im, PATH, OUTPUT_ALBUM_ID) # this method prints out to console
+			# PATH = "static/average/average.png"
+			# upload_picture(im, PATH, OUTPUT_ALBUM_ID) # this method prints out to console
+		return
 
 
 # refresh every hour
@@ -74,4 +76,4 @@ if __name__ == "__main__":
 # print uploaded_image.link
 
 
-# get an array of 
+# get an array of
