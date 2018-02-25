@@ -1,7 +1,6 @@
 # AverageMe
 ```
 Requires flask.
-
 ```
 
 
