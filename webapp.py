@@ -14,11 +14,12 @@ def index():
 @app.route('/average', methods=["POST", "GET"])
 def average():
 	# main()
-	main.main()
+	# main.main()
 	get_info.create_result()
 	images = get_info.get_all_images()
 	average = get_info.get_average() + "?" + `random.random()`;
 	return render_template('average.html', images=images, average=average)
 
 if __name__ == '__main__':
+	main.main()
 	app.run(debug=True)

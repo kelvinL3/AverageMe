@@ -63,8 +63,8 @@ def main():
 				img.download(path = "./static/all_images/", name=str(i))
 				i+=1
 			# process
-			# PATH = "static/average/average.png"
-			# upload_picture(im, PATH, OUTPUT_ALBUM_ID) # this method prints out to console
+			PATH = "static/average/average.png"
+			upload_picture(im, PATH, OUTPUT_ALBUM_ID) # this method prints out to console
 		return
 
 
