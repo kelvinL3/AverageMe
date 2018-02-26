@@ -2,7 +2,8 @@
 
 Requirements
 ```
-pip install flask
+Flask (pip install flask)
+Imgur
 (plus some other stuff)
 ```
 
